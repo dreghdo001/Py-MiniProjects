@@ -6,8 +6,6 @@ alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n'
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 
 
-#TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
-
 def caesar(start_text, shift_ammount, cipher_direction):
     end_text = ""
     if cipher_direction == "decode":
