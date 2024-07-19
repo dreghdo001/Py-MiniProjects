@@ -18,6 +18,7 @@ cars = []
 screen.onkey(player.move_up, "Up")
 game_is_on = True
 index = 0
+
 while game_is_on:
     time.sleep(0.1)
     if index % 5 ==0:
@@ -25,8 +26,11 @@ while game_is_on:
     index +=1
     for car in cars:
         if player.distance(car) < 25:
+
             player.increase_level()
             car.increase_level()
+            score.game_over()
+
         if player.ycor() >= 280:
             score.increase_score()
             player.increase_level()
