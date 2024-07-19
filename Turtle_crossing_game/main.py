@@ -14,30 +14,28 @@ score = Scoreboard()
 
 screen.listen()
 
-cars = []
+car_manager = CarManager()
 screen.onkey(player.move_up, "Up")
 game_is_on = True
 index = 0
 
 while game_is_on:
     time.sleep(0.1)
-    if index % 5 ==0:
-        cars.append(CarManager())
-    index +=1
-    for car in cars:
-        if player.distance(car) < 25:
-
-            player.increase_level()
-            car.increase_level()
-            score.game_over()
-
-        if player.ycor() >= 280:
-            score.increase_score()
-            player.increase_level()
-            car.increase_level()
-
-        car.move()
     screen.update()
 
+    car_manager.create_car()
+    car_manager.move_cars()
 
+    for car in car_manager.all_cars:
+        if car.distance(player) < 20:
+            game_is_on = False
+            score.game_over()
+
+    if player.is_at_finish():
+        player.go_to_start()
+        car_manager.level_up()
+        score.increase_score()
+
+
+screen.exitonclick()
 
