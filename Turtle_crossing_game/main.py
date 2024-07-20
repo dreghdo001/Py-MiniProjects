@@ -36,6 +36,5 @@ while game_is_on:
         car_manager.level_up()
         score.increase_score()
 
-
 screen.exitonclick()
 

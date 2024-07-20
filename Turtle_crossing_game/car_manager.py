@@ -4,10 +4,10 @@ import time
 
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
-MOVE_INCREMENT = 100
+MOVE_INCREMENT = 10
 
 
-class CarManager():
+class CarManager:
     def __init__(self):
         self.all_cars = []
         self.create_car()
@@ -29,6 +29,5 @@ class CarManager():
             car.backward(STARTING_MOVE_DISTANCE)
 
     def level_up(self):
-        print("level_increased")
         self.car_speed += MOVE_INCREMENT
 
