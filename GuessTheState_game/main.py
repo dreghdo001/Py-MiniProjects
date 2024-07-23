@@ -24,11 +24,9 @@ while len(guessed_states) < 50:
         text.goto(state_data.x.item(), state_data.y.item()) # takes items/columns x and y from that state
         text.write(f"{answer_state}", align="center", font=("Arial", 10, "normal"))
 
-states_to_learn = []
-for el in all_states:
-    if el not in guessed_states:
-        states_to_learn.append(el)
-
+# implement comprehension list
+states_to_learn = [state for state in all_states if state not in guessed_states]
+print(states_to_learn)
 to_learn_dict = {
     "State": states_to_learn
 }
