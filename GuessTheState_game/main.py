@@ -8,20 +8,29 @@ image = "blank_states_img.gif"
 
 screen.addshape(image)
 turtle.shape(image)
-answer_state = (screen.textinput(title="Guess the state", prompt="What's the state name ?")).title()
-while answer_state != "exit":
+data = pandas.read_csv("50_states.csv") # reads the data from CSV
+all_states = data.state.to_list()
+guessed_states = []
 
-    data = pandas.read_csv("50_states.csv")
+while len(guessed_states) < 50:
+    answer_state = (screen.textinput(title=f"{len(guessed_states)}/50 correct", prompt="What's the state name?")).title()
+    if answer_state == "Exit":
+        break
     if (data == answer_state).any().any():
-        coordinates = data[data["state"] == answer_state]
-        x_cor = int(coordinates["x"])
-        y_cor = int(coordinates["y"])
+        guessed_states.append(answer_state)
+        state_data = data[data["state"] == answer_state] # takes the row which correspond with the state entered
         text.penup()
         text.hideturtle()
-        text.goto(x_cor, y_cor)
+        text.goto(state_data.x.item(), state_data.y.item()) # takes items/columns x and y from that state
         text.write(f"{answer_state}", align="center", font=("Arial", 10, "normal"))
-        answer_state = (screen.textinput(title="Guess the state", prompt="What's the state name?")).title()
-    else:
-        answer_state = (screen.textinput(title="Guess the state", prompt="Not a state. Guess again !")).title()
 
-turtle.mainloop()
+states_to_learn = []
+for el in all_states:
+    if el not in guessed_states:
+        states_to_learn.append(el)
+
+to_learn_dict = {
+    "State": states_to_learn
+}
+pandas.DataFrame(to_learn_dict).to_csv("states_to_learn.csv")
+# turtle.mainloop() keeps the screen opened
