@@ -1,23 +1,19 @@
-import tkinter
+from tkinter import *
 
-window = tkinter.Tk()
-window.title("GUI")
-window.minsize(width=500, height=300)
-
-# Label
-label = tkinter.Label(text="Best label", font=("Arial", 24, "italic"))
-label.pack(side="top")
+# Creating a new window and configurations
+window = Tk()
+window.title("Widget Examples")
+window.minsize(width=150, height=200)
 
 
-class Car:
-    def __init__(self,   **kw):
-        self.make=kw.get("make")
-        self.model=kw.get("model")
-    def print(self):
-        print(f"Your car {self.make} is a {self.model} model")
+entry = Entry(width=10)
+entry.grid(column=1,row=1)
 
-my_car=Car(make="VW", model="passat")
 
-print(my_car.print())
+
+
+button = Button(text="Click Me", background="green")
+new_button = Button(text="Noob", background="orange")
+
 
 window.mainloop()
