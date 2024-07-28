@@ -32,7 +32,6 @@ def save_data():
             password_entry.delete(0, END)
             website_entry.focus()
 
-
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
