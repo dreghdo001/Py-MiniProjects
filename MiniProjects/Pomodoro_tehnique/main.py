@@ -72,6 +72,7 @@ window.config(padx=100, pady=50, bg=YELLOW)
 timer_label = Label(text="Timer", font=(FONT_NAME, 50, "bold"), bg=YELLOW, fg=GREEN)
 # timer_label.pack(side="top")
 timer_label.grid(column=1, row=0)
+
 # Create center image
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")  # convert image to tkinter photo img
