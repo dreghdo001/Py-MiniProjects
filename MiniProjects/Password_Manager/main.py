@@ -54,16 +54,27 @@ def save_data():
 
 def search_data():
     user_search = website_entry.get()
-    print(user_search)
-    with open("data.json", mode="r") as data_file:
-        data = json.load(data_file)
     try:
-        messagebox.showinfo(title=f"{user_search}", message=f"Username: {data[user_search]['username']}\nPassword: {data[user_search]['password']}")
-    except KeyError:
-        messagebox.showwarning(title="oops", message="Account not registered...try again with different one !")
+        with open("data.json", mode="r") as data_file:
+            data = json.load(data_file)
+    except FileNotFoundError:
+        messagebox.showinfo(title="Error", message="File not found")
     else:
-        #subprocess.run("pbcopy", text=True, input=f"{data[user_search]['passowrd']}")
-        window.clipboard_append(data[user_search]['password'])
+        if user_search == "":
+            messagebox.showinfo(title="Error", message=f"Enter the account you're looking for !")
+        elif user_search in data:
+            messagebox.showinfo(title=f"{user_search}",
+                                message=f"Username: {data[user_search]['username']}\n"
+                                        f"Password: {data[user_search]['password']}\n"
+                                        f"Password copied in the clipboard !\n")
+            # Copy password in the clipboard !
+            window.clipboard_append(data[user_search]['password'])
+            password_entry.delete(0, END)
+            password_entry.insert(0, data[user_search]['password'])
+        else:
+            messagebox.showinfo(title="Error", message=f"{user_search} account not registered !")
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 
 window = Tk()
