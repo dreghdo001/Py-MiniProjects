@@ -1,7 +1,7 @@
+import json
 from tkinter import *
 from tkinter import messagebox
-import json
-import subprocess
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 from password_generator import password_generator
 
