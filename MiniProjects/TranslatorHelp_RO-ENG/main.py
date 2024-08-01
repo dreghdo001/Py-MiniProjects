@@ -69,4 +69,4 @@ wrong_button.grid(column=0, row=1)
 # Next the card function
 next_card()
 
-window.mainloop()
+

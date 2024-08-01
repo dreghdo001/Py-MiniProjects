@@ -1,2 +1,0 @@
-BACKGROUND_COLOR = ""
-
