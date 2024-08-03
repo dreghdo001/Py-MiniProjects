@@ -27,27 +27,29 @@ print(yesterday_data)
 
 # Find the positive difference between yesterday and the day before prices
 price_difference = abs(float(yesterday_closing_price) - float(day_before_yesterday_closing_price))
+
 up_down = None
 if price_difference > 0:
     up_down = "🔼"
 else:
     up_down = "🔽"
+
 # Work out the percentage difference from yesterday price
 diff_percent = round((price_difference / float(yesterday_closing_price)) * 100)
 
 # Use the News API to get articles related to the COMPANY_NAME.
-if abs(diff_percent) > 5:
+if abs(diff_percent) > 3:
     parameters_news = {
         "qinTitle": COMPANY_NAME,
         "apikey": NEWS_API_KEY,
     }
     news_response = requests.get(NEWS_ENDPOINT, params=parameters_news)
     articles = news_response.json()["articles"]
-    print(articles)
 
     # Use Python slice operator to create a list that contains the first 3 article
     first_threes_articles = articles[:3]
 
-    # Create a new list of the first 3 article's headline and description using list comprehension.
+    # Create a new list of the first 5 articles headline and description
     formatted_articles = [f"{STOCK_NAME}: {up_down}{diff_percent}%\nHeadline : {article['title']}.\nBrief: {article['description']} " for article in first_threes_articles]
-    print(formatted_articles)
+    for art in formatted_articles:
+        print(f"\n{art}\n")
