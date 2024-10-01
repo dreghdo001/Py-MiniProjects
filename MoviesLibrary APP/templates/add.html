@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add movie</title>
+    <link rel="stylesheet" href="./static/style.css">
+  </head>
+  <body>
+    <div class="form-container">
+        <h2>Add movie </h2>
+        <form action="{{ url_for('add') }}" method="POST">
+            <label>Movie Name:</label>
+            <input type="text" id="title" name="title" required>
+
+            <label>Movie Type:</label>
+            <select id="movie_type" name="movie_type" required>
+                <option value="">Select Movie Type</option>
+                <option value="Action">Action</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Horror">Horror</option>
+                <option value="Romance">Romance</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Animation">Animation</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Documentary">Documentary</option>
+            </select>
+
+            <label for="rating">Rating:</label>
+            <input type="number" id="rating" name="rating" min="1" max="10" required>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+  </body>
+</html>
