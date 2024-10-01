@@ -4,6 +4,9 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="Python 3.11" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Flask" />
+    <orderEntry type="module" module-name="day57" />
+    <orderEntry type="module" module-name="day58" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="PLAIN" />

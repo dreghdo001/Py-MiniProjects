@@ -9,18 +9,19 @@ BUY_PRICE = 500
 
 # Get EMAIL details from .env file
 load_dotenv()
-SMTP_ADDRESS=os.getenv("SMTP_ADDRESS")
+SMTP_ADDRESS = os.getenv("SMTP_ADDRESS")
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 TO_ADDRESS = os.getenv("TO_ADDRESS")
 
 # Enter the URL in this format of the Amazon item that you're looking for
-URL="https://www.amazon.com/HP-Desktop-Display-Processor-Keyboard/dp/B0B6523VBD/"
+URL="https://www.amazon.com/Reyke-Tracker-Wireless-Flashlight-Receivers/dp/B08R9PTZ5G/"
 response = requests.get(URL)
+print(response.text)
 soup = BeautifulSoup(response.text, features="lxml")
 
 # Get the price and title using BeautifulSoup
-price_tag = soup.find("span", class_= "a-offscreen").getText()
+price_tag = soup.find("span", class_="a-offscreen").getText()
 price = price_tag[1:]
 title = soup.find(id="productTitle").get_text().strip()
 
