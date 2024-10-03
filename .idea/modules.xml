@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../Flask/.idea/Flask.iml" filepath="$PROJECT_DIR$/../Flask/.idea/Flask.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SmallProjects.iml" filepath="$PROJECT_DIR$/.idea/SmallProjects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../Py_Resource/day-64-starting-files-top-movies/.idea/day-64-starting-files-top-movies.iml" filepath="$PROJECT_DIR$/../../Py_Resource/day-64-starting-files-top-movies/.idea/day-64-starting-files-top-movies.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../day57/.idea/day57.iml" filepath="$PROJECT_DIR$/../../day57/.idea/day57.iml" />
       <module fileurl="file://$PROJECT_DIR$/../../HTML/day58/.idea/day58.iml" filepath="$PROJECT_DIR$/../../HTML/day58/.idea/day58.iml" />
     </modules>
